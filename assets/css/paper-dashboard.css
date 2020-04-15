@@ -2417,7 +2417,7 @@ p.description {
 
 .category,
 .card-category {
-    text-transform: capitalize;
+    text-transform: uppercase;
     font-weight: 400;
     color: white;
     font-size: 0.7142em;

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
+
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+</head>
+<body>
+ <p style="position: absolute; z-index:100; color:red; font-size: 24px; padding:-10%;user-select: none;">COVOID-19 HEAT MAP</p>
+  <div id='map'></div>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiamluZXNoc29uaSIsImEiOiJjazhkNGFmMWMwczdtM3BxdHA5ZDFsazE4In0.Anj8-kj0a5-QWZ3jrEFRYQ';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/light-v9',
+      center: [78.9629, 20.5937],
+      zoom: 4
+    });
+
+    map.on('load', function() {
+
+   map.addSource('meteors', {
+     type: 'geojson',
+     data: './covid19india.geojson'
+   });
+   map.addLayer({
+  id: 'meteor-heat',
+  type: 'heatmap',
+  source: 'meteors',
+  maxzoom: 7,
+  paint: {
+    // increase weight as diameter breast height increases
+    'heatmap-weight': {
+      property: 'confirmed',
+      type: 'exponential',
+      stops: [
+        [1, 0],
+        [62, 1]
+      ]
+    },
+    // increase intensity as zoom level increases
+    'heatmap-intensity': {
+      stops: [
+        [11, 1],
+        [15, 3]
+      ]
+    },
+    // assign color values be applied to points depending on their weight
+    'heatmap-color': {
+      stops: [
+        [0, 'rgba(245,227,127,0)'],
+        [0.2, '#f5e17f'],
+        [0.4, '#f5bf42'],
+        [0.6, '#f5970a'],
+        [0.8, '#e66a22'],
+        [1, '#d42c40']
+      ]
+    },
+    // increase radius as zoom increases
+    'heatmap-radius': {
+      stops: [
+        [11, 15],
+        [15, 20]
+      ]
+    },
+    // decrease opacity to transition into the circle layer
+    'heatmap-opacity': {
+      default: 1,
+      stops: [
+        [14, 1],
+        [15, 0]
+      ]
+    },
+  }
+}, 'waterway-label');
+
+
+
+   // add circle layer here
+   map.addLayer({
+  id: 'meteors-point',
+  type: 'circle',
+  source: 'meteors',
+  minzoom: 7,
+  paint: {
+    // increase the radius of the circle as the zoom level and confirmed value increases
+    'circle-radius': {
+      property: 'confirmed',
+      type: 'exponential',
+      stops: [
+        [{ zoom: 15, value: 1 }, 5],
+        [{ zoom: 15, value: 62 }, 50],
+        [{ zoom: 22, value: 1 }, 250],
+        [{ zoom: 22, value: 62 }, 1000],
+      ]
+    },
+    'circle-color': {
+      property: 'confirmed',
+      type: 'exponential',
+      stops: [
+        [0, 'rgba(236,222,239,0)'],
+        [10, '#ffffad'],
+        [30, '#f5e07a'],
+        [100, '#f5bf42'],
+        [250, '#f7b228'],
+        [500, '#e35f27'],
+        [10000, '#d93b3b']
+      ]
+    },
+    'circle-stroke-color': 'black',
+    'circle-stroke-width': 2,
+    'circle-opacity': {
+      stops: [
+        [14, 0],
+        [15, 1]
+      ]
+    }
+  }
+}, 'waterway-label');
+ });
+
+ map.on('click', 'meteors-point', function(e) {
+new mapboxgl.Popup()
+ .setLngLat(e.features[0].geometry.coordinates)
+ .setHTML(
+        '<b>state: </b>' + e.features[0].properties.state +
+        '<br><b>confirmed: </b> ' + e.features[0].properties.confirmed +
+        '<br><b>district: </b>' + e.features[0].properties.district)
+ .addTo(map);
+});
+
+  </script>
+</body>
+</html>

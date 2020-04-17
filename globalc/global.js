@@ -4,7 +4,7 @@ function ThisLoc(ca){
 
 
 function UpdateMap(){
-    fetch('https://corona.lmao.ninja/countries?sort=country')
+    fetch('https://corona.lmao.ninja/v2/countries?sort=country')
     .then(res => {
         return res.json()}) 
     .then(respo => {
@@ -68,7 +68,7 @@ function UpdateMap(){
 }
 UpdateMap();
 function UpdateMap1(){
-    fetch('https://corona.lmao.ninja/all')
+    fetch('https://corona.lmao.ninja/v2/all')
     .then(res => {
         return res.json()}) 
     .then(data => {

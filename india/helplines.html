@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>COVID-19 stats in India</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/mdb.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/datatables.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <div id="nav">
+            <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+                <div class="brand row">
+                    <div class="brand col-md-12">
+                        <a class="navbar-brand title" href="./index.html">COVID-19 INDIA</a>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>    
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="collapse navbar-collapse" id="basicExampleNav">  
+                            <ul class="navbar-nav mr-auto">
+                               <li class="nav-item">
+                                <a class="nav-link" href="/index.html">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="./index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="./info.html">Related Information</a>
+                                </li>
+                                <li class="nav-item active">
+                                <a class="nav-link" href="#">Helpline
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                                </li>  
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div id="helplines">
+                <div id="main-card" class="card">
+                    <div class="header">
+                        <h5 class="mb-0 text-center" style="color: #323232; padding-top:10px;">Ministry of Health & Family Welfare</h5>
+                    </div>
+                    <div class="body">
+                        <p id="main-help-p" class="black-text mb-0 text-left" style="display: inline; padding-left: 10px;">Helpline Number: <a href='tel:+911123978046'>+91-11-23978046</a></p>
+                        <p id="main-help-p" class="black-text mb-0 text-right" style="display:inline; float:right; padding-right:10px;">Helpline Email ID: <a href="mailto:ncov2019@gov.in">ncov2019@gov.in</a></p>
+                    </div>
+                </div>
+                <br>
+                <div id="help-cards" class="cards">
+                </div>
+            </div>
+        </div>
+
+                <div id="footer" class="">
+            <p class="white-text mb-0 text-center" style="font-size: 1.3rem;">Made With<svg id="i-heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <path stroke-width="0" fill="#f44336" d="M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z" />
+            </svg> For India by <a href="https://www.facebook.com/shivashish.ydv" target="_BLANK" style="text-decoration: none;color: white">Shivashish Yadav</a></p>
+            <div class="text-center">
+                <a href="https://www.instagram.com/shivashish.yadav/" target="_BLANK" style="color:purple;">
+                <svg role="i-instagram" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                    <path fill="#212529" d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                </svg>
+                </a>
+                <a href="https://twitter.com/ShivashishYadav" target="_BLANK" style="color:#212529;">
+                <svg id="i-twitter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="36" height="36">
+                    <path stroke-width="0" fill="#212529" d="M60 16 L54 17 L58 12 L51 14 C42 4 28 15 32 24 C16 24 8 12 8 12 C8 12 2 21 12 28 L6 26 C6 32 10 36 17 38 L10 38 C14 46 21 46 21 46 C21 46 15 51 4 51 C37 67 57 37 54 21 Z" />
+                </svg>
+                </a>
+            </div>
+            <p class="white-text mb-0 text-center" style="padding-top: 10px !important;">Checkout <a href="https://github.com/amodm/api-covid19-in" target="_BLANK" style="text-decoration: none;color: white">COVID-19 Stats API</a></p>
+        </div>            
+    </body>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/mdb.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            getHelplines();
+        });
+    </script>
+</html>

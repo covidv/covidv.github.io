@@ -31,5 +31,4 @@ var options = {
 };
 
 
-chart.draw(data, options);
 }

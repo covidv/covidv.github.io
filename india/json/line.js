@@ -30,7 +30,6 @@ var options = {
   legend: {position: 'bottom', textStyle: {color: 'gray'}},
 };
 
-var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
 chart.draw(data, options);
 }

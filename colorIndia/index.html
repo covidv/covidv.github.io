@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<title>Reported CoViD-19 Cases in India by Districts</title>
+        <meta charset="utf-8" />
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+		
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css?v=1.3.2">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-161936951-1"></script>
+		<script>
+  			window.dataLayer = window.dataLayer || [];
+  			function gtag(){dataLayer.push(arguments);}
+  			gtag('js', new Date());
+  			gtag('config', 'UA-161936951-1');
+			</script>
+
+  	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="sidebar" class="col-sm-3">
+					<h2 class="title">Reported CoVid-19 Cases Through Colors</h2>
+					<small>Data based on news reports, <a href="http://www.mohfw.gov.in/" target="_blank">compare with MoHFW here</a></small><br>
+					<small>Data last updated on <span id="timestamp"></span></small>
+					<table>
+						<tbody>
+							<tr>
+								<th style="text-align:center;">National Level</th>
+								<th>No.</th>
+							</tr>
+							<tr>
+								<td>Total Confirmed Cases</td>
+								<td id="tot_conf"><span class="fa fa-spinner fa-spin"></span></td>
+							</tr>
+							<tr>
+								<td>Discharged/Recovered</td>
+								<td id="tot_disch">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Deaths</td>
+								<td id="tot_death">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Total Active Cases</td>
+								<td id="tot_act">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>States Affected</td>
+								<td id="st_aff">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Districts Affected</td>
+								<td id="dt_aff">&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
+					<small>*Data includes foreign nationals</small>
+					<div>
+						<div class="btn-group" role="group">
+  						<button id="st-modal" data-toggle="modal" data-target="#infoModal" type="button" class="btn btn-primary">State Level Data</button>
+							<button id="dt-modal" data-toggle="modal" data-target="#infoModal" type="button" class="btn btn-info">District Level Data</button>
+						</div>
+					</div>
+					<hr>
+					<p>Interact with the highlighted districts on the map to get the breakup of cases for each district. Note that some small districts are only visible at high zoom levels.</p>
+					<p><a href="#map" class="d-md-none d-lg-none d-xl-none">Scroll down to Map</a></p>
+					<div class="btn-group" role="group">
+						<button id="abt-modal" data-toggle="modal" data-target="#infoModal" type="button" class="btn btn-warning">About this Map</button>
+						<button id="ct-modal" data-toggle="modal" data-target="#infoModal" type="button" class="btn btn-success">Contribute</button>
+					</div>
+				</div>
+				<div class="col-sm-9 p-0">
+					<div class="loader"><span class="fa fa-circle-notch fa-spin"></span> Loading...</div>
+					<div data-behaviour="choropleth-map"></div>
+					<div id="resetZoom"><span class="fa fa-undo-alt"></span></div>
+					<div id="legend"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="infoModalLabel"></h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        ...
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+  </body>
+</html>
+<script src="js/tabletop.js"></script>
+<script src="js/districts_729.js"></script>
+<script src="js/states.js"></script>
+<script src="js/choropleth.js?v=1.6.3"></script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <div id="chart" style="width:700px; height:300px;"></div> 
+</body>
+
+<script>
+  google.load('visualization', '1', {packages: ['geomap']});
+
+    $(function() {
+            // when document loads, grab the json
+            $.getJSON('regiontop10.json', function(data) {
+                // once grabbed, we run this callback
+
+                // setup the new map and its variables
+                var map = new google.visualization.DataTable();
+                    map.addRows(data.length);  // length gives us the number of results in our returned data
+                    map.addColumn('string', 'Country');
+                map.addColumn('number', 'Population');
+
+                // now we need to build the map data, loop over each result
+                $.each(data, function(i,v) {
+                    // set the values for both the name and the population
+                    map.setValue(i, 0, v.DisplayName);
+                    map.setValue(i, 1, v.population);
+                });
+                // finally, create the map!
+                var geomap = new google.visualization.GeoMap(
+                  document.getElementById('visualization'));
+                     geomap.draw(map, null);
+
+            });
+   });
+</script>
+</html>

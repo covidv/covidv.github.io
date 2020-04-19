@@ -1,0 +1,218 @@
+
+.dark,
+
+.dark header .heading .text {
+    color: #e6e6e6;
+}
+
+.dark .navbar {
+    background-color: #444;
+}
+
+.dark .navbar a {
+    color: #e6e6e6;
+}
+
+.dark .navbar .icon {
+    fill: #e6e6e6;
+}
+
+.dark header .heading .text1{
+    color: #e6e6e6;
+}
+
+.dark header .heading .ico {
+    fill: #e6e6e6;
+}
+
+.dark .help .join {
+    background-color: #a9a9a9;
+	color: #111;
+}
+
+.dark .help {
+	background: linear-gradient(110deg, #4a5568 60%, #333 60%);
+}
+
+.dark header p  {
+    color: #e6e6e6;
+}
+
+.dark  {
+    background-color: #222;
+    color: #e6e6e6;
+}
+
+.dark .section__title h3 {
+    color: #e6e6e6;
+}
+
+.dark .section__title p {
+    color: #e6e6e6;
+}
+
+.dark .modal {
+    background-color: #222;
+}
+
+.dark .inner-switch {
+  background: url('https://api.iconify.design/emojione-monotone:light-bulb.svg?color=%23e6e6e6') no-repeat;
+  background-size: 100%;
+}
+
+.dark .switch {
+	background-color: #179c52;
+	color: #222;
+}
+
+.dark #navbar {
+    
+	border-color: #223;
+}
+
+.dark .device {
+    background-color: #333;
+}
+
+.dark .device h4 {
+  color: #d5dce6;
+}
+
+.dark.social__list svg {
+  fill: #e6e6e6;
+}
+
+.dark #myBtn {
+  background-color: rgba(0,0,0, .8);
+  fill: rgba(230, 230, 230, .5);
+  font-weight: bold;
+}
+
+.dark #myBtn:hover {
+  background-color: rgba(46, 49, 49, .3);
+  fill: rgba(230, 230, 230, 1);
+}
+
+.dark .now {
+	border-bottom: solid 1.5px;
+	border-bottom-color: #e6e6e6;
+}
+
+.dark .info .active {
+	background-color: rgba(102, 102, 102,.3);
+	box-shadow: 0 5px 8px rgba(255,255,255,0.12), 0 5px 8px rgba(255,255,255,0.24);
+	color: #d9d9d9;
+}
+
+.dark .pur {
+	stroke: rgba(190, 144, 212,1);
+}
+
+.dark .sil {
+	stroke: rgba(189, 195, 199, 1);
+}
+
+.dark .info .cases {
+	background-color: rgba(128,0,128,.3);
+	color: #b47aff;
+	box-shadow: 0 5px 8px rgba(255,255,255,0.12), 0 5px 8px rgba(255,255,255,0.24);
+}
+
+.dark tr .tdgrey {
+	background-color: rgba(189, 195, 199, .1);
+	color: rgba(189, 195, 199, 1);
+}
+
+.dark tr .tdgrey1 {
+	background-color: rgba(189, 195, 199, .15);
+	color: rgba(189, 195, 199, 1);
+}
+
+.dark tr .tdgrey2 {
+	background-color: rgba(189, 195, 199, .3);
+	color: rgba(189, 195, 199, 1);
+}
+
+.dark .bulb {
+	display: :hidden;
+	visibility:hidden;
+}
+
+.dark tr .tdpur {
+	background-color: rgba(190, 144, 212,.1);
+	color: rgba(190, 144, 212,1);
+}
+
+.dark tr .tdpur1 {
+	background-color: rgba(190, 144, 212,.15);
+	color: rgba(190, 144, 212,1);
+}
+
+.dark tr .tdpur2 {
+	background-color: rgba(190, 144, 212,.3);
+	color: rgba(190, 144, 212,1);
+}
+
+.dark .date {
+	background-color: rgba(255, 0, 0,0.3);
+	color: #f7a8a8;
+
+}
+
+.dark .deaths {
+	background-color: rgba(0, 81, 255,0.3);
+	color: #b9dffa;
+	box-shadow: 0 5px 8px rgba(255,255,255,0.12), 0 5px 8px rgba(255,255,255,0.24);
+}
+
+.dark .recover {
+	background-color: rgba(13, 255, 0,0.3);
+	color: #75ff6b;
+	box-shadow: 0 5px 8px rgba(255,255,255,0.12), 0 5px 8px rgba(255,255,255,0.24);
+}
+
+.dark .cases1 {
+	color: #fff;
+
+}
+
+.dark .card {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color:white;
+}
+
+.dark #helplines .card {
+    box-shadow: 0 4px 8px 0 blue;
+    transition: 0.3s;
+    height: 6rem;
+    margin: 6px;
+    background-color: black;
+    
+}
+
+.dark #info-symptoms .card {
+    padding: 20px;
+    background-color: black;
+        box-shadow: 0 4px 8px 0 blue;
+}
+
+
+.dark #info-prevention .card, #info-others .card {
+    padding: 20px;
+    background-color: black;
+         box-shadow: 0 4px 8px 0 blue;
+}
+
+.dark .charts.row {
+background-color: #222;
+         box-shadow: 0 4px 8px 0 #222;  
+}
+
+.dark .mapContainer {
+    
+   background-color: #222; 
+}
+    
+
+

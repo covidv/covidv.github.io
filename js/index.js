@@ -44,7 +44,7 @@ $.ajax({
 
             countryListHTML += `<li>
                                     <a style="text-decoration: none; color: white;" href="javascript: selectCountry('${country.Country_Region}')">
-                                        <p><img src="https://img.shields.io/badge/-${country.Confirmed}-red" alt="counter"> &nbsp;${country.Country_Region}</p>
+                                        <p><img src="https://img.shields.io/badge/-${country.Confirmed}-red" alt="count"> &nbsp;${country.Country_Region}</p>
                                     </a>
                                 </li>`;
 
@@ -116,4 +116,10 @@ function selectCountry(name) {
     }
     $("#bodyClick").click();
     animateNumbers();
+    if (name != 'global' && name != 'US') {
+        generateGraph(name);
+        console.log("Creating Graph");
+    } else {
+        destroyGraph();
+    }
 }
